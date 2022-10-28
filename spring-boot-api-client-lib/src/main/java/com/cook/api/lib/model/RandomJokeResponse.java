@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Модель с данными, в которую будет "разбираться" response,
+ * полученный через Feign-клиент, от удаленного сервера
+ */
 @Data
 @Builder
 @AllArgsConstructor

@@ -2,7 +2,7 @@ package com.cook.api.lib.proxy;
 
 
 import com.cook.api.lib.client.RandomJokeClient;
-import com.cook.api.lib.model.FormApiClientResponse;
+import com.cook.api.lib.model.FormApiClientCommonFormatResponse;
 import com.cook.api.lib.model.RandomJokeResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,16 @@ import org.springframework.stereotype.Component;
 public class FormApiClientProxy {
     private final RandomJokeClient randomJokeClient;
 
-    public FormApiClientResponse<RandomJokeResponse> getRandomJoke() {
+    /**
+     * Этот api будет доступен приложениям, которые включат создаваемую библиотеку
+     * как зависимость.
+     *
+     * Обратите внимание на тип {@link FormApiClientCommonFormatResponse<RandomJokeResponse>} -
+     * это контейнер предоставляет единую модель хранения данных, как для ответа с ошибкой,
+     * так и для успешного ответа
+     */
+    public FormApiClientCommonFormatResponse<RandomJokeResponse> getRandomJoke() {
+
         RandomJokeResponse response;
 
         try {
@@ -29,16 +38,21 @@ public class FormApiClientProxy {
 
         log.info("getRandomJoke request received. Response: {}", response);
 
-        return FormApiClientResponse.<RandomJokeResponse>builder()
+        return FormApiClientCommonFormatResponse.<RandomJokeResponse>builder()
                 .data(response)
                 .build();
     }
 
-    private FormApiClientResponse<RandomJokeResponse> getErrorResponse(String errorDescription) {
+
+    /**
+     * Создадим обработчик ошибок, в случае, если Feign клиент не смот получить response от удаленного сервера
+     * @param errorDescription - сообщение об ошибке, которое будет выведено для клиента
+     */
+    private FormApiClientCommonFormatResponse<RandomJokeResponse> getErrorResponse(String errorDescription) {
 
         log.info("getRandomJoke request received but an error occurred. Error: {}", errorDescription);
 
-        return FormApiClientResponse.<RandomJokeResponse>builder()
+        return FormApiClientCommonFormatResponse.<RandomJokeResponse>builder()
                 .error(true)
                 .errorDescription(errorDescription)
                 .build();
