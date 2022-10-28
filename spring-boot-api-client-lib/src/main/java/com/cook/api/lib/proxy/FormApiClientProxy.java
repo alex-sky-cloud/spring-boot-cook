@@ -45,7 +45,8 @@ public class FormApiClientProxy {
 
 
     /**
-     * Создадим обработчик ошибок, в случае, если Feign клиент не смот получить response от удаленного сервера
+     * Создадим обработчик ошибок, в случае, если Feign клиент не смог получить response
+     * от удаленного сервера
      * @param errorDescription - сообщение об ошибке, которое будет выведено для клиента
      */
     private FormApiClientCommonFormatResponse<RandomJokeResponse> getErrorResponse(String errorDescription) {

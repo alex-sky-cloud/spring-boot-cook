@@ -13,10 +13,20 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot-api-server-mock</name>
     <description>spring-boot-api-server-mock</description>
+
     <properties>
         <java.version>17</java.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
     </properties>
     <dependencies>
+
+        <dependency>
+            <groupId>com.cook.spring.boot</groupId>
+            <artifactId>spring-boot-api-client-lib</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -39,6 +49,18 @@
         </dependency>
     </dependencies>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -55,5 +77,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

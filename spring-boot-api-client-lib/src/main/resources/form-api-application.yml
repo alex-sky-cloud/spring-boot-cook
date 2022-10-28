@@ -1,23 +1,34 @@
 spring:
   application:
     name: web-api-client
+  #если не указать здесь профиль, тогда будет выброшен
+  # exception во время сопоставления свойств данного файла
+  profiles: dev
+
+random:
+  joke:
+    api:
+      url: https://official-joke-api.appspot.com/random_joke
 
 ---
 
 spring:
   profiles: dev, stage
 
+
+
 feign:
   client:
     config:
-      randomjokeapi:
+      random-api:
         connect-timeout: 2000
         read-timeout: 4000
+        loggerLevel: full
 
 random:
   joke:
     api:
-      url: https://official-joke-api.appspot.com/random_joke
+      url: 'https://official-joke-api.appspot.com/random_joke'
 
 ---
 

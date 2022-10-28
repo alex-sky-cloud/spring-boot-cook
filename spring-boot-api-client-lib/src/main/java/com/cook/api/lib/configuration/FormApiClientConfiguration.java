@@ -18,11 +18,12 @@ import org.springframework.context.annotation.PropertySource;
  * *-application.yml, данные которого используем и указали класс {@link YamlPropertySourceFactory},
  * который будет производить "разбор" данных из указанного файла свойств
  */
-@EnableFeignClients(clients = RandomJokeClient.class)
-@ComponentScan(basePackageClasses = FormApiClientProxy.class)
+@EnableFeignClients(basePackages = {"com.cook.api.lib"})
+@ComponentScan(basePackages = {"com.cook.api.lib"})
 @Configuration
 @PropertySource(
         value = "classpath:form-api-application.yml",
         factory = YamlPropertySourceFactory.class)
 public class FormApiClientConfiguration {
+
 }

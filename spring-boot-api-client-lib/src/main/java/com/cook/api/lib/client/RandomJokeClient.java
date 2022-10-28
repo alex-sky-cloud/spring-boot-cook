@@ -1,5 +1,6 @@
 package com.cook.api.lib.client;
 
+import com.cook.api.lib.configuration.FeignConfig;
 import com.cook.api.lib.model.RandomJokeResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
  * к другим маршрутам, если они будут создаваться
  * 'url' - здесь указываете адрес, по которому будет выполняться запрос
  */
-@FeignClient(name = "random.joke.api", url = "${random.joke.api.url}")
+@FeignClient(
+        name = "random-api",
+        url = "https://official-joke-api.appspot.com/random_joke", /*в данном случае, можно только указать
+        явно адрес, не через *-application.yml*/
+        configuration = FeignConfig.class)
 public interface RandomJokeClient {
     @GetMapping
     RandomJokeResponse getRandomJoke();
