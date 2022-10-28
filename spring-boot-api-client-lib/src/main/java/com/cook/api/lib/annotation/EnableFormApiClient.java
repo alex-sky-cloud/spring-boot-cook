@@ -1,6 +1,6 @@
 package com.cook.api.lib.annotation;
 
-import com.cook.api.lib.model.configuration.FormApiClientConfiguration;
+import com.cook.api.lib.configuration.FormApiClientConfiguration;
 
 import org.springframework.context.annotation.Import;
 

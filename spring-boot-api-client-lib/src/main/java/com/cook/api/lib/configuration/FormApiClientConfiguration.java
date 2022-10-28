@@ -1,4 +1,4 @@
-package com.cook.api.lib.model.configuration;
+package com.cook.api.lib.configuration;
 
 
 import com.cook.api.lib.client.RandomJokeClient;

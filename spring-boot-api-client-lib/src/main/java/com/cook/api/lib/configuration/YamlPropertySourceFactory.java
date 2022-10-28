@@ -1,4 +1,4 @@
-package com.cook.api.lib.model.configuration;
+package com.cook.api.lib.configuration;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;

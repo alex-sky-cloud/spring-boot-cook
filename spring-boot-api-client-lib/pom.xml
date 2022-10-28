@@ -13,6 +13,10 @@
 
     <properties>
         <java.version>17</java.version>
+        <!--чтобы избежать предупреждения:  File encoding has not been set,
+         using platform encoding Cp1251, i.e. build is platform dependent!
+         -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-cloud.version>2021.0.4</spring-cloud.version>
         <lombok.version>1.18.24</lombok.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
