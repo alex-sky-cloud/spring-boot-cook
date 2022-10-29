@@ -1,0 +1,8 @@
+event:
+  starter:
+    enabled: true
+    listener:
+      enabled-events:
+        - foo
+        - bar
+
