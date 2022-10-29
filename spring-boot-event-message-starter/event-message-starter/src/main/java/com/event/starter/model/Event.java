@@ -9,6 +9,5 @@ import lombok.Value;
  * @param type тип события
  * @param payload полезные данные(некоторая дополнительная информация)
  */
-@ToString
 public record Event(String type, String payload) {
 }
