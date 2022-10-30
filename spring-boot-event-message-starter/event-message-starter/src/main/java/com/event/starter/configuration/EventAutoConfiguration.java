@@ -3,9 +3,11 @@ package com.event.starter.configuration;
 
 import com.event.starter.listeners.EventListener;
 import com.event.starter.properties.EventListenerProperties;
+import com.event.starter.properties.EventStarterProperties;
 import com.event.starter.publishers.EventPublisher;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +25,10 @@ import java.util.List;
         "com.event.starter.mocks.KafkaStream"
 })
 @ConditionalOnProperty(value = "event.starter.enabled", havingValue = "true")
-@EnableConfigurationProperties(EventListenerProperties.class)
+@EnableConfigurationProperties(value = {
+        EventListenerProperties.class,
+        EventStarterProperties.class
+})
 public class EventAutoConfiguration {
 
     /**
