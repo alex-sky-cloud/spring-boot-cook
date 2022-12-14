@@ -3,6 +3,13 @@ event:
     enabled: true
     listener:
       enabled-events:
-        - foo
-        - bar
+        - kafka-stream
+
+#event:
+#  starter:
+#    enabled: true
+#    listener:
+#      enabled-events:
+#        - foo
+#        - bar
 

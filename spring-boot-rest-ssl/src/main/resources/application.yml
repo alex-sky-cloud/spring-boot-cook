@@ -1,0 +1,9 @@
+# настройки для SSL шифрования и использования keypair
+server:
+  ssl:
+    enabled: true
+    key-store: classpath:ssl/spring_backend_ssl.p12
+    # Пароль тот, которым было ранее зашифровано хранилище ключей spring_backend_ssl.p12
+    key-store-password: root
+    # тип тот, который был выбран при создании key-store : spring_backend_ssl.p12
+    key-store-type: PKCS12
