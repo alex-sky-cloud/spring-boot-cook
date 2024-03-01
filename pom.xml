@@ -18,9 +18,5 @@
     </properties>
 
     <packaging>pom</packaging>
-    <modules>
-        <module>spring-boot-api-client-lib</module>
-        <module>spring-boot-api-server-mock</module>
-        <module>spring-boot-event-message-starter</module>
-    </modules>
+
 </project>
